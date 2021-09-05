@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-y: scroll;
+}
+
+[class*="dark"] {
+  transition: 200ms;
+}

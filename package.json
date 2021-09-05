@@ -1,0 +1,24 @@
+{
+  "name": "solid-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "vite --host",
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview --host",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.3.3",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.9",
+    "vite": "^2.5.1",
+    "vite-plugin-solid": "^2.0.3"
+  },
+  "dependencies": {
+    "solid-js": "^1.1.1"
+  }
+}
