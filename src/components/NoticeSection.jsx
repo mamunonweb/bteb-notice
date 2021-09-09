@@ -37,7 +37,7 @@ export default function NoticeSection() {
 
 function notLastItem(notices) {
   if (notices.length > 0) {
-    const [last] = notices[notices.length - 1]
-    return last > 1
+    const [lastIndex] = notices[notices.length - 1]
+    return lastIndex > 1
   }
 }

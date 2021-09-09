@@ -1,7 +1,7 @@
 import { createSignal, createEffect } from 'solid-js'
 
 export default function fetchNotices() {
-  const [page, setPage] = createSignal(1)
+  const [page, setPage] = createSignal(0)
   const [loading, setLoading] = createSignal(false)
   const [notices, setNotices] = createSignal([])
 
