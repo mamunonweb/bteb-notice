@@ -4,11 +4,10 @@ export default function fetchNotices() {
   const [page, setPage] = createSignal(0)
   const [loading, setLoading] = createSignal(false)
   const [notices, setNotices] = createSignal([])
-
+  
   createEffect(async () => {
     setLoading(true)
-    const res = await fetch(`https://biit.tk/api/bnotice/?page=${page()}`)
-    const newNotices = await res.json()
+    const newNotices = await fetch(`https://notice.opps.workers.dev/${page()}`).then(res => res.json())
     setNotices([...notices(), ...newNotices])
     setLoading(false)
   })
