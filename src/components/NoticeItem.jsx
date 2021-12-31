@@ -7,7 +7,10 @@ export default function NoticeItem(props) {
       className="flex py-4 border-b border-dashed dark:border-gray-700/50"
     >
       <div className="flex-grow pl-4">
-        <time className="block mb-2 text-gray-500 text-sm" datetime={props.date}>
+        <time
+          className="block mb-2 text-gray-500 text-sm"
+          datetime={props.date}
+        >
           {props.date}
         </time>
         <h2 innerHTML={props.title} />
