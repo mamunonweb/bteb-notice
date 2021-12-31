@@ -9,9 +9,7 @@ export default function NoticeSection() {
   const { notices, nextChunk } = fetchNotices()
 
   onScrollBottom(() => {
-    if (notLastItem(notices())) {
-      nextChunk()
-    }
+    nextChunk()
   })
 
   return (
@@ -33,11 +31,4 @@ export default function NoticeSection() {
       </div>
     </section>
   )
-}
-
-function notLastItem(notices) {
-  if (notices.length > 0) {
-    const [lastIndex] = notices[notices.length - 1]
-    return lastIndex > 1
-  }
 }
