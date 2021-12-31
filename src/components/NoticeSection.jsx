@@ -23,8 +23,8 @@ export default function NoticeSection() {
           fallback={<span className="m-auto">Loading...</span>}
         >
           <For each={notices()}>
-            {([index, title, date, link]) => (
-              <NoticeItem index={index} title={title} date={date} link={link} />
+            {([date, title, link]) => (
+              <NoticeItem title={title} date={date} link={link} />
             )}
           </For>
         </Show>

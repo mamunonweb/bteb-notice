@@ -1,8 +1,8 @@
-export default function DownloadButton({ link }) {
+export default function DownloadButton(props) {
   return (
     <a
       title="Download"
-      href={link}
+      href={props.link}
       target="_blank"
       rel="noreferrer noopener"
       className="inline-flex border border-dashed h-7 w-7 rounded-full text-gray-500 hover:border-gray-300 hover:text-primary-500 dark:border-gray-700/50 dark:hover:border-gray-700"
