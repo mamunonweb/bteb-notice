@@ -8,7 +8,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Poppins"', '"Noto Sans Bengali"', ...defaultTheme.fontFamily.sans],
+        sans: [
+          '"Poppins"',
+          '"Noto Sans Bengali"',
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
       colors: {
         primary: colors.blue,
