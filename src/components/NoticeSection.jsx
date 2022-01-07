@@ -1,7 +1,7 @@
 import { For } from 'solid-js'
 
 import NoticeItem from './NoticeItem'
-
+import Spinner from './Spinner'
 import fetchNotices from '../utils/fetchNotices'
 import onScrollBottom from '../utils/onScrollBottom'
 
@@ -18,10 +18,7 @@ export default function NoticeSection() {
         aria-label="Notices"
         className="flex flex-col max-w-2xl w-full mx-auto py-4 bg-white dark:bg-gray-800"
       >
-        <Show
-          when={notices().length > 0}
-          fallback={<span className="m-auto">Loading...</span>}
-        >
+        <Show when={notices().length > 0} fallback={<Spinner />}>
           <For each={notices()}>
             {([date, title, link]) => (
               <NoticeItem title={title} date={date} link={link} />
