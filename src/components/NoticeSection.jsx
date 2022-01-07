@@ -1,4 +1,4 @@
-import { For } from 'solid-js'
+import { For, Show } from 'solid-js'
 
 import NoticeItem from './NoticeItem'
 import Spinner from './Spinner'
@@ -6,10 +6,10 @@ import fetchNotices from '../utils/fetchNotices'
 import onScrollBottom from '../utils/onScrollBottom'
 
 export default function NoticeSection() {
-  const { notices, nextChunk } = fetchNotices()
+  const { notices, fetchNextChunk, loading } = fetchNotices()
 
   onScrollBottom(() => {
-    nextChunk()
+    fetchNextChunk()
   })
 
   return (
@@ -24,6 +24,11 @@ export default function NoticeSection() {
               <NoticeItem title={title} date={date} link={link} />
             )}
           </For>
+          <Show when={loading()}>
+            <span className="inline-flex pt-4">
+              <Spinner />
+            </span>
+          </Show>
         </Show>
       </div>
     </section>
