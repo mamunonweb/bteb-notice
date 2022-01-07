@@ -16,14 +16,12 @@ export default function ThemeToggle() {
   })
 
   return (
-    <>
-      <button
-        title={theme() === 'DARK' ? 'Dark theme' : 'White theme'}
-        onClick={() => handleTheme()}
-        className="p-2 rounded-full text-primary-500"
-      >
-        {theme() === 'DARK' ? <MoonIcon /> : <SunIcon />}
-      </button>
-    </>
+    <button
+      title={theme() === 'DARK' ? 'Dark theme' : 'White theme'}
+      onClick={() => handleTheme()}
+      className="p-2 rounded-full text-primary-500"
+    >
+      {theme() === 'DARK' ? <MoonIcon /> : <SunIcon />}
+    </button>
   )
 }
