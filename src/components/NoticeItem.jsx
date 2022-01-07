@@ -4,7 +4,7 @@ export default function NoticeItem(props) {
   return (
     <div
       aria-label="Notice"
-      className="flex py-4 border-b border-dashed dark:border-gray-700/50"
+      className="flex py-4 border-b border-gray-100 dark:border-gray-700/50"
     >
       <div className="flex-grow pl-4">
         <time
@@ -15,7 +15,7 @@ export default function NoticeItem(props) {
         </time>
         <h2 innerHTML={props.title} />
       </div>
-      <div className="flex-shrink-0 flex items-center justify-center px-4">
+      <div className="flex-shrink-0 flex items-center justify-center px-2">
         <DownloadButton link={props.link} />
       </div>
     </div>
