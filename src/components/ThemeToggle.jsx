@@ -18,15 +18,11 @@ export default function ThemeToggle() {
   return (
     <>
       <button
-        title={theme() === 'DARK' ? 'Dark' : 'White'}
+        title={theme() === 'DARK' ? 'Dark theme' : 'White theme'}
         onClick={() => handleTheme()}
-        className="h-12 w-12 flex text-gray-500"
+        className="p-2 rounded-full text-primary-500"
       >
-        {theme() === 'DARK' ? (
-          <MoonIcon className="m-auto" />
-        ) : (
-          <SunIcon className="m-auto" />
-        )}
+        {theme() === 'DARK' ? <MoonIcon /> : <SunIcon />}
       </button>
     </>
   )
