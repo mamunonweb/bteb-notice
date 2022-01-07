@@ -5,7 +5,3 @@
 body {
   overflow-y: scroll;
 }
-
-[class*="dark"] {
-  transition: 200ms;
-}
