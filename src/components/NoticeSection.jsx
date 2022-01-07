@@ -2,8 +2,8 @@ import { For } from 'solid-js'
 
 import NoticeItem from './NoticeItem'
 
-import fetchNotices from '../fetchNotices'
-import onScrollBottom from '../onScrollBottom'
+import fetchNotices from '../utils/fetchNotices'
+import onScrollBottom from '../utils/onScrollBottom'
 
 export default function NoticeSection() {
   const { notices, nextChunk } = fetchNotices()

@@ -1,7 +1,7 @@
 import { createSignal, createEffect } from 'solid-js'
 
 import { MoonIcon, SunIcon } from './icons'
-import { getLocaleTheme, setLocaleTheme, setThemeClass } from './theme'
+import { getLocaleTheme, setLocaleTheme, setThemeClass } from '../utils/theme'
 
 export default function ThemeToggle() {
   const [theme, setTheme] = createSignal(getLocaleTheme())
