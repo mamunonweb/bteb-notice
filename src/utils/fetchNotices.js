@@ -1,7 +1,7 @@
 import { createSignal, createEffect } from 'solid-js'
 
 export default function fetchNotices() {
-  let empty = false
+  let isLastFetch = false
   const [page, setPage] = createSignal(0)
   const [loading, setLoading] = createSignal(false)
   const [notices, setNotices] = createSignal([])
@@ -13,7 +13,7 @@ export default function fetchNotices() {
     ).then(res => res.json())
 
     if (newNotices.length === 0) {
-      empty = true
+      isLastFetch = true
     }
 
     setNotices([...notices(), ...newNotices])
@@ -21,7 +21,7 @@ export default function fetchNotices() {
   })
 
   function fetchNextChunk() {
-    if (loading() === false && empty === false) {
+    if (loading() === false && isLastFetch === false) {
       setPage(page() + 1)
     }
   }
