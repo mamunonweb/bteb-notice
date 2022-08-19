@@ -5,15 +5,17 @@ export default function NoticeItem(props) {
     <div aria-label="Notice" className="flex py-4">
       <div className="flex-grow pl-4">
         <time
-          className="block mb-2 text-gray-500 text-sm"
+          className="flex items-center mb-2 text-gray-500 text-sm"
           datetime={props.date}
         >
-          {props.date}
+          {props.dateInMonth}
+          <span className="inline-block mx-2">•</span>
+          {props.dateDiffInDay}
         </time>
         <h2 innerHTML={props.title} />
       </div>
       <div className="flex-shrink-0 flex items-center justify-center px-2">
-        <DownloadButton link={props.link} />
+        <DownloadButton link={props.url} />
       </div>
     </div>
   )

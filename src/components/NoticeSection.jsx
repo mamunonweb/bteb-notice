@@ -6,11 +6,9 @@ import fetchNotices from '../utils/fetchNotices'
 import onScrollBottom from '../utils/onScrollBottom'
 
 export default function NoticeSection() {
-  const { notices, fetchNextChunk, loading } = fetchNotices()
+  const { notices, next, loading } = fetchNotices()
 
-  onScrollBottom(() => {
-    fetchNextChunk()
-  })
+  onScrollBottom(next)
 
   return (
     <section className="mt-12 flex-grow flex">
@@ -19,11 +17,7 @@ export default function NoticeSection() {
         className="flex flex-col max-w-2xl w-full mx-auto py-4 bg-white divide-y divide-gray-100 dark:divide-gray-700/50 dark:bg-gray-800"
       >
         <Show when={notices().length > 0} fallback={<Spinner />}>
-          <For each={notices()}>
-            {([date, title, link]) => (
-              <NoticeItem title={title} date={date} link={link} />
-            )}
-          </For>
+          <For each={notices()}>{notice => <NoticeItem {...notice} />}</For>
           <Show when={loading()}>
             <span className="inline-flex pt-4">
               <Spinner />

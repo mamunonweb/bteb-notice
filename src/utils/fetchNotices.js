@@ -1,30 +1,35 @@
-import { createSignal, createEffect } from 'solid-js'
+import { createEffect, createResource, createSignal } from 'solid-js'
+
+async function noticeFetcher(page) {
+  const res = await fetch(`https://netedge.netlify.app/notice?page=${page}`)
+  return await res.json()
+}
 
 export default function fetchNotices() {
-  let isLastFetch = false
+  let isLast = false
   const [page, setPage] = createSignal(0)
-  const [loading, setLoading] = createSignal(false)
   const [notices, setNotices] = createSignal([])
+  const [pageNotices] = createResource(page, noticeFetcher)
+
+  const loading = () => pageNotices.loading
 
   createEffect(async () => {
-    setLoading(true)
-    const newNotices = await fetch(
-      `https://notice.opps.workers.dev/${page()}`
-    ).then(res => res.json())
+    const newNotices = pageNotices()
 
-    if (newNotices.length === 0) {
-      isLastFetch = true
+    if (newNotices) {
+      setNotices(notices => [...notices, ...newNotices])
+
+      if (newNotices.length === 0) {
+        isLast = true
+      }
     }
-
-    setNotices([...notices(), ...newNotices])
-    setLoading(false)
   })
 
-  function fetchNextChunk() {
-    if (loading() === false && isLastFetch === false) {
+  function next() {
+    if (!loading() && !isLast) {
       setPage(page() + 1)
     }
   }
 
-  return { notices, loading, fetchNextChunk }
+  return { notices, loading, next }
 }
