@@ -1,14 +1,14 @@
 import { DownloadIcon } from './icons'
 
 type Props = {
-  link: string
+  href: string
 }
 
 export default function DownloadButton(props: Props) {
   return (
     <a
       title="Download / Preview"
-      href={props.link}
+      href={props.href}
       target="_blank"
       rel="noreferrer noopener"
       className="p-2 rounded-full text-gray-500 hover:text-primary-500"

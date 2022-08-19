@@ -16,7 +16,7 @@ export default function NoticeItem(props: Notice) {
         <h2 innerHTML={props.title} />
       </div>
       <div className="flex-shrink-0 flex items-center justify-center px-2">
-        <DownloadButton link={props.url} />
+        <DownloadButton href={props.url} />
       </div>
     </div>
   )
