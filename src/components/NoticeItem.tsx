@@ -1,6 +1,7 @@
+import type { Notice } from '../utils/fetchNotices'
 import DownloadButton from './DownloadButton'
 
-export default function NoticeItem(props) {
+export default function NoticeItem(props: Notice) {
   return (
     <div aria-label="Notice" className="flex py-4">
       <div className="flex-grow pl-4">

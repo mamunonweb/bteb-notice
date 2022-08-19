@@ -1,7 +1,7 @@
 import { createSignal, onMount } from 'solid-js'
 
 export default function useTheme() {
-  const [theme, setTheme] = createSignal('light')
+  const [theme, setTheme] = createSignal<'light' | 'dark'>('light')
 
   onMount(() => setTheme(isDark() ? 'dark' : 'light'))
 
@@ -17,7 +17,7 @@ export default function useTheme() {
     setTheme((localStorage.theme = theme))
   }
 
-  return [theme, toggleTheme]
+  return [theme, toggleTheme] as const
 }
 
 function isDark() {

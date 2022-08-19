@@ -1,6 +1,10 @@
 import { DownloadIcon } from './icons'
 
-export default function DownloadButton(props) {
+type Props = {
+  link: string
+}
+
+export default function DownloadButton(props: Props) {
   return (
     <a
       title="Download / Preview"

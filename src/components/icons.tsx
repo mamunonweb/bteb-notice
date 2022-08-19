@@ -1,4 +1,8 @@
-export function DownloadIcon(props) {
+import type { JSX } from 'solid-js'
+
+type Props = JSX.SvgSVGAttributes<SVGSVGElement>
+
+export function DownloadIcon(props: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +23,7 @@ export function DownloadIcon(props) {
   )
 }
 
-export function SunIcon(props) {
+export function SunIcon(props: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +50,7 @@ export function SunIcon(props) {
   )
 }
 
-export function MoonIcon(props) {
+export function MoonIcon(props: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
