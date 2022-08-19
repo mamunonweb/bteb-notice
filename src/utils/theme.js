@@ -1,25 +1,29 @@
-export function getLocaleTheme() {
-  const themeCached = ['DARK', 'WHITE'].includes(localStorage.THEME)
+import { createSignal, onMount } from 'solid-js'
 
-  if (!themeCached) {
-    localStorage.THEME = isPrefersSchemeDark() ? 'DARK' : 'WHITE'
+export default function useTheme() {
+  const [theme, setTheme] = createSignal('light')
+
+  onMount(() => setTheme(isDark() ? 'dark' : 'light'))
+
+  function toggleTheme() {
+    const theme = isDark() ? 'light' : 'dark'
+
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
+    setTheme((localStorage.theme = theme))
   }
 
-  return localStorage.THEME
+  return [theme, toggleTheme]
 }
 
-export function setLocaleTheme(theme) {
-  localStorage.THEME = theme
-}
-
-export function setThemeClass(theme) {
-  if (theme === 'DARK') {
-    document.documentElement.classList.add('dark')
+function isDark() {
+  if ('theme' in localStorage) {
+    return localStorage.theme === 'dark'
   } else {
-    document.documentElement.classList.remove('dark')
+    return matchMedia('(prefers-color-scheme: dark)').matches
   }
-}
-
-function isPrefersSchemeDark() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
 }

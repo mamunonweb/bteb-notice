@@ -17,6 +17,23 @@
       name="description"
       content="Board notice of Bangladesh Technical Education Board"
     />
+    <script>
+      ;(function () {
+        if (isDark()) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+
+        function isDark() {
+          if ('theme' in window.localStorage) {
+            return window.localStorage.theme === 'dark'
+          } else {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches
+          }
+        }
+      })()
+    </script>
   </head>
   <body class="bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-gray-400">
     <noscript>You need to enable JavaScript to run this app.</noscript>
